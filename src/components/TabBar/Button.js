@@ -3,7 +3,13 @@ import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { colors, sizes } from "../../styles";
 
-export default function TabBarButton({ state, route, index, descriptors, navigation }) {
+export default function TabBarButton({
+  state,
+  route,
+  index,
+  descriptors,
+  navigation,
+}) {
   const { options } = descriptors[route.key];
   const label =
     options.tabBarLabel !== undefined
@@ -46,12 +52,12 @@ export default function TabBarButton({ state, route, index, descriptors, navigat
     >
       <Feather
         name="home"
-        color={isFocused ? colors.background : colors.backgroundLight}
+        color={isFocused ? colors.background : colors.backgroundLight + "99"}
         size={sizes.xl}
       />
       <Text
         style={{
-          color: isFocused ? colors.background : colors.backgroundLight,
+          color: isFocused ? colors.background : colors.backgroundLight + "99",
         }}
       >
         {label}
