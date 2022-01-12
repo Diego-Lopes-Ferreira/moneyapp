@@ -38,6 +38,9 @@ const global = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-start",
   },
+  flex1: {
+    flex: 1,
+  },
   rowGroup: {
     width: "100%",
     flexDirection: "row",
