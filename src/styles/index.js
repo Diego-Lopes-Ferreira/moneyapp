@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const colors = {
+export const colors = {
   foreground: "#f0f0f0",
   background: "#181818",
   backgroundLight: "#363636",
@@ -9,7 +9,7 @@ const colors = {
   blue: "#0000ff",
 };
 
-const sizes = {
+export const sizes = {
   xxxl: 32,
   xxl: 28,
   xl: 24,
