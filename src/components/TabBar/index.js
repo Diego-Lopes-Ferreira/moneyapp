@@ -13,7 +13,7 @@ export default function TabBar({ state, descriptors, navigation }) {
         key={index}
         state={state}
         route={route}
-        index={index}
+        index={state.routes.indexOf(route)}
         descriptors={descriptors}
         navigation={navigation}
       />
