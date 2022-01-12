@@ -1,19 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // Pages
-import homePage from "./src/pages/Home";
-
-const Stack = createNativeStackNavigator();
+import StackRoutes from "./src/routes";
 
 export default function App() {
   return (
     <NavigationContainer>
       <StatusBar style="dark" />
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={homePage} />
-      </Stack.Navigator>
+      <StackRoutes />
     </NavigationContainer>
   );
 }
@@ -26,9 +21,9 @@ export default function App() {
   [ ] Icon component?
   ## Home Page
   [ ] Card component
-  [ ] Account component: Icon, name, type?, value
-  [ ] Credit Card Component: Icon, type?, name, Available, Statement
+  [x] Account component: Icon, name, type?, value
+  [x] Credit Card Component: Icon, type?, name, Available, Statement
   ## Transactions Page
-  [ ] Transaction Component: Icon, name, description, value, (paid x received)
+  [x] Transaction Component: Icon, name, description, value, (paid x received)
   [ ] Horizontal Calendar component
 */
