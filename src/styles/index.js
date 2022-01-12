@@ -20,7 +20,7 @@ const sizes = {
   xxs: 4,
 };
 
-const styles = StyleSheet.create({
+const global = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
@@ -68,4 +68,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default styles;
+export default global;
