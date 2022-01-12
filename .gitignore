@@ -15,3 +15,4 @@ web-build/
 
 # Diego
 /reference
+src/pages/Another.js
