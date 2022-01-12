@@ -3,6 +3,7 @@ import { Feather } from "@expo/vector-icons";
 import global, { colors, sizes } from "../styles";
 import Account from "../components/Account";
 import CreditCard from "../components/CreditCard";
+import Expense from "../components/Expense";
 
 export default function homePage() {
   return (
@@ -80,6 +81,25 @@ export default function homePage() {
             hasBorder={false}
           />
           {/* button: manage credit cards: goto(creditCards) */}
+        </View>
+
+        <View style={global.card}>
+          <Expense
+            iconName="eye"
+            iconColor="#0f0f0f"
+            name="The name here"
+            category="category"
+            value={1234.56}
+            status="paid"
+          />
+          <Expense
+            iconName="eye"
+            iconColor="#0f0f0f"
+            name="The name here"
+            category="category"
+            value={-1234.56}
+            status="paid"
+          />
         </View>
       </View>
     </ScrollView>
