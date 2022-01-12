@@ -3,11 +3,13 @@ import { NavigationContainer } from "@react-navigation/native";
 
 // Pages
 import StackRoutes from "./src/routes";
+import Header from "./src/components/Header";
 
 export default function App() {
   return (
     <NavigationContainer>
-      <StatusBar style="dark" />
+      <Header />
+      <StatusBar style="light" />
       <StackRoutes />
     </NavigationContainer>
   );
