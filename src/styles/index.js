@@ -2,11 +2,13 @@ import { StyleSheet } from "react-native";
 
 export const colors = {
   foreground: "#f0f0f0",
+  foregroundDarker: "#d0d0d0",
   background: "#181818",
   backgroundLight: "#363636",
   red: "#ff0000",
   green: "#00ff00",
-  blue: "#0000ff",
+  blue: "#57B1DB",
+  // blueDarker: "#3FA7D6",
 };
 
 export const sizes = {
@@ -33,6 +35,8 @@ const global = StyleSheet.create({
     borderRadius: sizes.l,
     padding: sizes.s,
     margin: sizes.s,
+    alignItems: "center",
+    justifyContent: "flex-start",
   },
   rowGroup: {
     width: "100%",
@@ -63,7 +67,7 @@ const global = StyleSheet.create({
     fontSize: sizes.m,
   },
   text_small: {
-    color: colors.foreground,
+    color: colors.foregroundDarker,
     fontSize: sizes.s,
   },
 });

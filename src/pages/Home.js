@@ -1,6 +1,7 @@
 import { Text, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import global from "../styles";
+import Account from "../components/Account";
 
 export default function homePage() {
   return (
@@ -27,6 +28,21 @@ export default function homePage() {
       <View style={global.card}>
         <Text style={global.h3}>My accounts</Text>
         {/* for each: Account Component */}
+        <Account
+          iconName="home"
+          name="Carteira"
+          category="other"
+          value={120}
+          hasBorder={true}
+        />
+        <Account
+          iconName="eye"
+          name="Diego Poupança Teste Long"
+          category="Savings Account"
+          value={120}
+          hasBorder={true}
+        />
+        <Account iconName="github" name="Hello" category="world" value={220.9} />
         {/* button: manage accounts: goto(accounts) */}
       </View>
 
