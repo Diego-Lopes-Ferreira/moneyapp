@@ -3,28 +3,8 @@ import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { colors, sizes } from "../../styles";
 
-export default function TabBarButton({
-  state,
-  route,
-  index,
-  descriptors,
-  navigation,
-}) {
-  const { options } = descriptors[route.key];
-
-  let label = "";
-  if (options.tabBarLabel !== undefined) {
-    label = options.tabBarLabel;
-  } else if (options.title !== undefined) {
-    label = options.title;
-  } else {
-    label = route.name;
-  }
-
-  const isFocused = state.index === index;
-
+export default function TabBarButton({ isFocused, route, label, navigation }) {
   const fgColor = isFocused ? colors.background : colors.backgroundLight + "99";
-
   const onPress = () => {
     const event = navigation.emit({
       type: "tabPress",
@@ -32,26 +12,14 @@ export default function TabBarButton({
       canPreventDefault: true,
     });
     if (!isFocused && !event.defaultPrevented) {
-      // The `merge: true` option makes sure that the params inside the tab screen are preserved
       navigation.navigate({ name: route.name, merge: true });
     }
   };
-
-  const onLongPress = () => {
-    navigation.emit({
-      type: "tabLongPress",
-      target: route.key,
-    });
-  };
-
   return (
     <TouchableOpacity
       accessibilityRole="button"
       accessibilityState={isFocused ? { selected: true } : {}}
-      accessibilityLabel={options.tabBarAccessibilityLabel}
-      testID={options.tabBarTestID}
       onPress={onPress}
-      onLongPress={onLongPress}
       style={local.tabBarIcon}
     >
       <Feather name="home" color={fgColor} size={sizes.xl} />

@@ -6,15 +6,25 @@ export default function TabBar({ state, descriptors, navigation }) {
   const halfOfArr = Math.ceil(state.routes.length / 2);
   const firstHalf = state.routes.slice(0, halfOfArr);
   const secondHalf = state.routes.slice(halfOfArr);
-
-  function returnTabBarIcon(route, index) {
+  let index = 0;
+  function returnTabBarIcon(route) {
+    const isFocused = state.index === index;
+    index += 1;
+    const { options } = descriptors[route.key];
+    let label = "";
+    if (options.tabBarLabel !== undefined) {
+      label = options.tabBarLabel;
+    } else if (options.title !== undefined) {
+      label = options.title;
+    } else {
+      label = route.name;
+    }
     return (
       <TabBarButton
         key={index}
-        state={state}
+        isFocused={isFocused}
         route={route}
-        index={state.routes.indexOf(route)}
-        descriptors={descriptors}
+        label={label}
         navigation={navigation}
       />
     );

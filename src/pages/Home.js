@@ -23,7 +23,7 @@ export default function homePage() {
             <View style={local.greenBar}></View>
             <View style={[global.columnGroup, local.flex1]}>
               <Text style={global.text_normal}>Overall balance</Text>
-              <Text style={global.h2}>R$ 311,26</Text>
+              <Text style={global.h2}>R$ 123,26</Text>
             </View>
             <Feather name="eye" color="#f0f0f0" size={32} />
           </View>
@@ -39,7 +39,7 @@ export default function homePage() {
             iconName="home"
             name="Carteira"
             category="other"
-            value={120}
+            value={230.5}
             hasBorder={true}
           />
           <Account
