@@ -11,14 +11,19 @@ export default function TabBarButton({
   navigation,
 }) {
   const { options } = descriptors[route.key];
-  const label =
-    options.tabBarLabel !== undefined
-      ? options.tabBarLabel
-      : options.title !== undefined
-      ? options.title
-      : route.name;
+
+  let label = "";
+  if (options.tabBarLabel !== undefined) {
+    label = options.tabBarLabel;
+  } else if (options.title !== undefined) {
+    label = options.title;
+  } else {
+    label = route.name;
+  }
 
   const isFocused = state.index === index;
+
+  const fgColor = isFocused ? colors.background : colors.backgroundLight + "99";
 
   const onPress = () => {
     const event = navigation.emit({
@@ -50,18 +55,8 @@ export default function TabBarButton({
       onLongPress={onLongPress}
       style={local.tabBarIcon}
     >
-      <Feather
-        name="home"
-        color={isFocused ? colors.background : colors.backgroundLight + "99"}
-        size={sizes.xl}
-      />
-      <Text
-        style={{
-          color: isFocused ? colors.background : colors.backgroundLight + "99",
-        }}
-      >
-        {label}
-      </Text>
+      <Feather name="home" color={fgColor} size={sizes.xl} />
+      <Text style={{ color: fgColor }}>{label}</Text>
     </TouchableOpacity>
   );
 }
