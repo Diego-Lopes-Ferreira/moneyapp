@@ -42,7 +42,7 @@ const global = StyleSheet.create({
     flex: 1,
   },
   rowGroup: {
-    width: "100%",
+    flex: 1,
     flexDirection: "row",
   },
   columnGroup: {
