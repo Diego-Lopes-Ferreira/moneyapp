@@ -31,11 +31,6 @@ export default function TabBar({ state, descriptors, navigation }) {
 const local = StyleSheet.create({
   tabBarContainer: {
     flexDirection: "row",
-    position: "absolute",
-    bottom: sizes.l,
-    left: sizes.l,
-    right: sizes.l,
-    elevation: 0,
     backgroundColor: colors.foreground,
     borderRadius: sizes.s,
     height: 2 * sizes.xxxl,
