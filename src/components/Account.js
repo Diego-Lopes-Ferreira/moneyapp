@@ -9,7 +9,6 @@ export default function Account({
   value,
   hasBorder,
 }) {
-  let valueFormated = value + ",00";
   return (
     <View
       style={[
@@ -25,7 +24,7 @@ export default function Account({
         <Text style={global.text_small}>{category}</Text>
       </View>
       <View style={local.valueContainer}>
-        <Text style={local.value}>R$ {valueFormated}</Text>
+        <Text style={local.value}>R$ {Number.parseFloat(value).toFixed(2)}</Text>
       </View>
     </View>
   );
