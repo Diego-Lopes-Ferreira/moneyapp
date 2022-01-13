@@ -2,34 +2,32 @@ import { useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 // import { Feather } from "@expo/vector-icons";
 import { colors, sizes } from "../../styles";
-import monthNames from "../../utils/monthNames";
+import monthNames, {
+  generateMonthYearStringWithOffset,
+} from "../../utils/monthNames";
 
 export default function AnotherCalendarHorizontal({ setPageDate }) {
   const [date, setDate] = useState(new Date());
 
-  let mb = new Date(date.getUTCFullYear(), date.getMonth() - 1);
-  let txtmb = monthNames[mb.getMonth()] + ", " + mb.getUTCFullYear();
-
-  let ma = new Date(date.getUTCFullYear(), date.getMonth() + 1);
-  let txtma = monthNames[ma.getMonth()] + ", " + ma.getUTCFullYear();
-
   function goBackDate() {
     let newDate = new Date(date.getUTCFullYear(), date.getMonth() - 1);
     setDate(newDate);
-    // setPageDate(date);
+    setPageDate(newDate);
   }
 
   function goForwardDate() {
     let newDate = new Date(date.getUTCFullYear(), date.getMonth() + 1);
     setDate(newDate);
-    // setPageDate(date);
+    setPageDate(newDate);
   }
 
   return (
     <View style={local.container}>
       <View style={local.card}>
         <TouchableOpacity onPress={goBackDate}>
-          <Text style={local.text}>{txtmb}</Text>
+          <Text style={local.text}>
+            {generateMonthYearStringWithOffset(date, -1)}
+          </Text>
         </TouchableOpacity>
       </View>
       <View style={[local.card, local.selectedContainer]}>
@@ -39,7 +37,9 @@ export default function AnotherCalendarHorizontal({ setPageDate }) {
       </View>
       <View style={local.card}>
         <TouchableOpacity onPress={goForwardDate}>
-          <Text style={local.text}>{txtma}</Text>
+          <Text style={local.text}>
+            {generateMonthYearStringWithOffset(date, 1)}
+          </Text>
         </TouchableOpacity>
       </View>
     </View>

@@ -28,4 +28,12 @@ const fullMonthNames = [
   "December",
 ];
 
+export function generateMonthYearStringWithOffset(date, offset = 0) {
+  let newDate = new Date(date.getUTCFullYear(), date.getMonth() + offset);
+  let str = monthNames[newDate.getMonth()];
+  str += ", ";
+  str += newDate.getUTCFullYear();
+  return str;
+}
+
 export default monthNames;
