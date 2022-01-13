@@ -13,7 +13,6 @@ for (let i = 0; i < 16; i++) {
     id: i,
     date: new Date(date),
   });
-  console.log(DATA);
 }
 
 export default function CalendarHorizontal({ setDate }) {
