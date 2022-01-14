@@ -5,7 +5,16 @@ import { colors, sizes } from "../../styles";
 
 export default function TabBarButton({ isFocused, route, label, navigation }) {
   const fgColor = isFocused ? colors.background : colors.backgroundLight + "99";
-  const onPress = () => {
+
+  const iconNames = {
+    Home: "home",
+    Transactions: "clipboard",
+    Invoices: "credit-card",
+    Reports: "file-text",
+    Another: "github",
+  };
+
+  function onPress() {
     const event = navigation.emit({
       type: "tabPress",
       target: route.key,
@@ -14,7 +23,8 @@ export default function TabBarButton({ isFocused, route, label, navigation }) {
     if (!isFocused && !event.defaultPrevented) {
       navigation.navigate({ name: route.name, merge: true });
     }
-  };
+  }
+
   return (
     <TouchableOpacity
       accessibilityRole="button"
@@ -22,7 +32,7 @@ export default function TabBarButton({ isFocused, route, label, navigation }) {
       onPress={onPress}
       style={local.tabBarIcon}
     >
-      <Feather name="home" color={fgColor} size={sizes.xl} />
+      <Feather name={iconNames[label]} color={fgColor} size={sizes.xl} />
       <Text style={{ color: fgColor }}>{label}</Text>
     </TouchableOpacity>
   );
