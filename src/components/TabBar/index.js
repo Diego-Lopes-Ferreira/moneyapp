@@ -1,6 +1,7 @@
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { colors, sizes } from "../../styles";
 import TabBarButton from "./Button";
+import TabBarPlus from "../Button/TabBarPlus";
 
 export default function TabBar({ state, descriptors, navigation }) {
   const halfOfArr = Math.ceil(state.routes.length / 2);
@@ -32,7 +33,11 @@ export default function TabBar({ state, descriptors, navigation }) {
   return (
     <View style={local.tabBarContainer}>
       {firstHalf.map(returnTabBarIcon)}
-      <Text>Here goes button :)</Text>
+      <TabBarPlus
+        callback={() => {
+          // navigation.navigate({ name: "CreateTransactionPage?" });
+        }}
+      />
       {secondHalf.map(returnTabBarIcon)}
     </View>
   );
