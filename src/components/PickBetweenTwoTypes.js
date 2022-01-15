@@ -1,5 +1,5 @@
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-import { sizes, colors } from "../../styles";
+import { sizes, colors } from "../styles";
 
 export default function PickBetweenTwoTypes({
   type,

@@ -1,5 +1,5 @@
 import { StyleSheet, View, Text, TextInput } from "react-native";
-import { colors, sizes } from "../../styles";
+import { colors, sizes } from "../styles";
 
 export default function Input({ state, setState, label }) {
   return (
