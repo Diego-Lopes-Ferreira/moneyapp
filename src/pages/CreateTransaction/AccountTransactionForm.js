@@ -5,6 +5,7 @@ import PickBetweenTwoTypes from "../../components/PickBetweenTwoTypes";
 import HeaderCancelSave from "./HeaderCancelSave";
 import ButtonSimple from "../../components/Button/Simple";
 import Input from "../../components/Input";
+import ValueInput from "../../components/ValueInput";
 import DatePicker from "../../components/DatePicker";
 
 export default function AccountTransactionForm({ route, navigation }) {
@@ -14,6 +15,7 @@ export default function AccountTransactionForm({ route, navigation }) {
   const [name, set_name] = useState("");
   const [desc, set_desc] = useState("");
   const [date, set_date] = useState(new Date());
+  const [value, set_value] = useState("0,00");
 
   function handleGoBack() {
     navigation.goBack();
@@ -21,8 +23,16 @@ export default function AccountTransactionForm({ route, navigation }) {
 
   function handleSelectCategory() {
     if (name == "") return;
+    if (value.replace(",", "") == 0) return;
     navigation.navigate("CreateTransaction.SelectCategory", {
-      data: { account_id, type, name, desc, date },
+      data: {
+        account_id,
+        type,
+        value: value.replace(",", ""),
+        name,
+        desc,
+        date,
+      },
     });
   }
 
@@ -40,7 +50,7 @@ export default function AccountTransactionForm({ route, navigation }) {
           rightLabel="Entrada"
           rightColor={colors.green}
         />
-        <Text style={global.h3}>TODO: Pega Valor</Text>
+        <ValueInput state={value} setState={set_value} label="Valor" />
         <Input state={name} setState={set_name} label="Nome" />
         <Input state={desc} setState={set_desc} label="Descrição (Opcional)" />
         <DatePicker date={date} setDate={set_date} />
