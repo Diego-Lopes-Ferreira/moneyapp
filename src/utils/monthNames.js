@@ -36,4 +36,13 @@ export function generateMonthYearStringWithOffset(date, offset = 0) {
   return str;
 }
 
+export function genDayMonthYearString(date) {
+  let str = date.getDate(); // 0 - 31
+  str += " de ";
+  str += monthNames[date.getMonth()]; // jan - dez
+  str += ", ";
+  str += date.getUTCFullYear();
+  return str;
+}
+
 export default monthNames;
