@@ -1,17 +1,21 @@
 import { useState } from "react";
-import {
-  StyleSheet,
-  ScrollView,
-  View,
-} from "react-native";
+import { StyleSheet, ScrollView, View } from "react-native";
 import global, { colors, sizes } from "../../styles";
-import Input from "./Input";
-import PickBetweenTwoTypes from "./PickBetweenTwoTypes";
+import Input from "../../components/Input";
+import PickBetweenTwoTypes from "../../components/PickBetweenTwoTypes";
 import HeaderCancelSave from "./HeaderCancelSave";
+import DatePicker from "../../components/DatePicker";
 
 export default function CreateTransaction({ navigation }) {
   const [type, set_type] = useState("expense");
   const [method, set_method] = useState("account");
+  const [cc_ac_id, set_cc_ac_id] = useState("account");
+  const [date, set_date] = useState(new Date());
+  const [value, set_value] = useState(0);
+  const [name, set_name] = useState("");
+  const [description, set_description] = useState("");
+  const [category, set_category] = useState("");
+
   return (
     <View style={global.container}>
       <HeaderCancelSave
@@ -31,18 +35,24 @@ export default function CreateTransaction({ navigation }) {
         rightColor={colors.green}
         rightLabel="Entrada"
       />
-      <PickBetweenTwoTypes
-        type={method}
-        leftType="cc"
-        rightType="account"
-        setType={set_method}
-        rightColor={colors.foreground}
-        rightLabel="Cartão de Crédito"
-        leftColor={colors.foreground}
-        leftLabel="Conta"
-      />
       <ScrollView style={local.form}>
-        {/* <Input state={name} setState={set_name} label="Hi hello" /> */}
+        <PickBetweenTwoTypes
+          type={method}
+          setType={set_method}
+          rightLabel="Cartão de Crédito"
+          rightType="cc"
+          rightColor={colors.foreground}
+          leftType="account"
+          leftLabel="Conta"
+          leftColor={colors.foreground}
+        />
+        <DatePicker date={date} setDate={set_date} />
+        <Input state={name} setState={set_name} label="Nome" />
+        <Input
+          state={description}
+          setState={set_description}
+          label="Descrição"
+        />
       </ScrollView>
     </View>
   );
