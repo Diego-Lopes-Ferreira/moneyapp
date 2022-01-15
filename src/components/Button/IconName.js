@@ -41,8 +41,7 @@ const local = StyleSheet.create({
   },
   icon: {
     padding: sizes.s,
-    marginRight: sizes.s,
-    marginLeft: 0,
+    marginHorizontal: sizes.s,
     borderRadius: sizes.xxxl,
   },
 });

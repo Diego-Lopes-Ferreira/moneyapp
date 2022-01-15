@@ -15,8 +15,12 @@ export default function DatePicker({ date, setDate }) {
 
   return (
     <View style={local.container}>
-      <Text style={global.text_normal}>Data: </Text>
-      <TouchableOpacity style={local.btn} onPress={() => setShow(true)}>
+      <Text style={local.text}>Data: </Text>
+      <TouchableOpacity
+        activeOpacity={0.7}
+        style={local.input}
+        onPress={() => setShow(true)}
+      >
         <Text style={local.txt}>{genDayMonthYearString(date)}</Text>
       </TouchableOpacity>
       {show && (
@@ -35,18 +39,20 @@ export default function DatePicker({ date, setDate }) {
 
 const local = StyleSheet.create({
   container: {
-    alignSelf: "stretch",
-    // flexDirection: "row",
-    backgroundColor: colors.backgroundLight,
-    paddingHorizontal: sizes.s,
-    paddingVertical: sizes.s,
-    marginHorizontal: sizes.xl,
-    borderRadius: sizes.m,
+    flex: 1,
+    marginBottom: sizes.xl,
   },
-  btn: {
-    width: "100%",
-    paddingHorizontal: sizes.s,
-    paddingVertical: sizes.s,
+  text: {
+    paddingHorizontal: sizes.l,
+    fontSize: sizes.l,
+    color: colors.foreground,
+  },
+  input: {
+    alignSelf: "stretch",
+    padding: sizes.s,
+    marginHorizontal: sizes.s,
+    marginTop: sizes.xs,
+    color: colors.foreground,
     borderRadius: sizes.s,
     borderColor: colors.foreground,
     borderWidth: 1,

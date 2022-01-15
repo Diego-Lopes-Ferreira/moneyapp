@@ -13,6 +13,7 @@ export default function Input({ state, setState, label }) {
 const local = StyleSheet.create({
   container: {
     flex: 1,
+    marginBottom: sizes.xl,
   },
   text: {
     paddingHorizontal: sizes.l,
@@ -22,8 +23,10 @@ const local = StyleSheet.create({
   input: {
     alignSelf: "stretch",
     padding: sizes.s,
-    margin: sizes.l,
+    marginHorizontal: sizes.s,
+    marginTop: sizes.xs,
     color: colors.foreground,
+    borderRadius: sizes.s,
     borderColor: colors.foreground,
     borderWidth: 1,
   },

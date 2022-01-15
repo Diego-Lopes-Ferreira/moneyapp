@@ -28,12 +28,15 @@ export default function ValueInput({ state, setState, label }) {
 const local = StyleSheet.create({
   container: {
     flex: 1,
+    marginBottom: sizes.xl,
   },
   row: {
     ...global.rowGroup,
     justifyContent: "center",
     alignItems: "center",
-    margin: sizes.l,
+    marginHorizontal: sizes.s,
+    marginTop: sizes.xs,
+    borderRadius: sizes.s,
     borderColor: colors.foreground,
     borderWidth: 1,
   },
