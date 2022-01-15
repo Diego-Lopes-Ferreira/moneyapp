@@ -11,6 +11,7 @@ export default function ButtonSimple({ label, callback }) {
 
 const local = StyleSheet.create({
   btn: {
+    alignSelf: "stretch",
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: colors.foreground,
