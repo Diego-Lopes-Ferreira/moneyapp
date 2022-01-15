@@ -35,7 +35,7 @@ export default function TabBar({ state, descriptors, navigation }) {
       {firstHalf.map(returnTabBarIcon)}
       <TabBarPlus
         callback={() => {
-          navigation.navigate({ name: "CreateTransaction" });
+          navigation.navigate({ name: "CreateTransaction.SelectWhat" });
         }}
       />
       {secondHalf.map(returnTabBarIcon)}
