@@ -1,7 +1,7 @@
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import global, { colors, sizes } from "../../styles";
 
-export default function HeaderCancelSave({ leftPress, rightPress, title }) {
+export default function HeaderCancelSave({ leftPress, title }) {
   return (
     <View style={local.header}>
       <TouchableOpacity
@@ -12,20 +12,13 @@ export default function HeaderCancelSave({ leftPress, rightPress, title }) {
         <Text style={local.cancelBtnText}>Cancelar</Text>
       </TouchableOpacity>
       <Text style={[global.text_normal, local.headerTitle]}>{title}</Text>
-      <TouchableOpacity
-        activeOpacity={0.7}
-        onPress={rightPress}
-        style={[local.btnWrapper, local.saveBtnWrapper]}
-      >
-        <Text style={local.saveBtnText}>Salvar</Text>
-      </TouchableOpacity>
     </View>
   );
 }
 
 const local = StyleSheet.create({
   header: {
-    width: "100%",
+    alignSelf: "stretch",
     paddingVertical: sizes.l,
     paddingHorizontal: sizes.s,
     flexDirection: "row",
@@ -33,7 +26,7 @@ const local = StyleSheet.create({
     alignItems: "center",
   },
   headerTitle: {
-    flex: 2,
+    flex: 3,
     textAlign: "center",
   },
   btnWrapper: {
