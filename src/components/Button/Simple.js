@@ -4,13 +4,15 @@ import global, { colors, sizes } from "../../styles";
 export default function ButtonSimple({ label, callback }) {
   return (
     <TouchableOpacity activeOpacity={0.7} onPress={callback} style={local.btn}>
-      <Text style={}>{label}</Text>
+      <Text style={local.txt}>{label}</Text>
     </TouchableOpacity>
   );
 }
 
 const local = StyleSheet.create({
   btn: {
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: colors.foreground,
     borderRadius: sizes.xxxl,
     padding: sizes.s,
@@ -19,5 +21,5 @@ const local = StyleSheet.create({
   txt: {
     ...global.text_normal,
     color: colors.background,
-  }
+  },
 });
