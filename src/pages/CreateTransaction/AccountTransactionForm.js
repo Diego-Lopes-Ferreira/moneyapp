@@ -25,14 +25,15 @@ export default function AccountTransactionForm({ route, navigation }) {
     if (name == "") return;
     if (value.replace(",", "") == 0) return;
     let theVal = value.replace(",", "");
+    let theDate = date.toISOString();
     navigation.navigate("CreateTransaction.SelectCategory", {
       data: {
         account_id,
         type,
-        value: theVal ,
+        value: theVal,
         name,
         desc,
-        date,
+        date: theDate,
       },
     });
   }
