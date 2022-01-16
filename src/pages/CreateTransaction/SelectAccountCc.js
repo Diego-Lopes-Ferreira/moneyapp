@@ -10,7 +10,7 @@ export default function SelectAccountCc({ navigation }) {
 
   function handleCc(id) {
     navigation.navigate("CreateTransaction.CcTransactionForm", {
-      ccid: id,
+      cc_id: id,
     });
   }
 
