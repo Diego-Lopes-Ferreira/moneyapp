@@ -5,8 +5,8 @@ export const colors = {
   foregroundDarker: "#d0d0d0",
   background: "#181818",
   backgroundLight: "#363636",
-  red: "#ff0000",
-  green: "#00ff00",
+  red: "#FF220C",
+  green: "#73D039",
   blue: "#57B1DB",
   // blueDarker: "#3FA7D6",
 };
