@@ -7,6 +7,7 @@ export default function ButtonIconName({
   callback,
   iconName,
   iconColor,
+  iconSize,
   iconBgColor,
 }) {
   return (
@@ -14,7 +15,7 @@ export default function ButtonIconName({
       <Feather
         style={[local.icon, { backgroundColor: iconBgColor }]}
         name={iconName}
-        size={sizes.s}
+        size={iconSize || sizes.l}
         color={iconColor}
       />
       <Text style={local.txt}>{label}</Text>
@@ -40,7 +41,7 @@ const local = StyleSheet.create({
     color: colors.foreground,
   },
   icon: {
-    padding: sizes.s,
+    padding: sizes.xs,
     marginHorizontal: sizes.s,
     borderRadius: sizes.xxxl,
   },
