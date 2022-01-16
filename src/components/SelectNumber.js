@@ -2,7 +2,7 @@ import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import global, { colors, sizes } from "../styles";
 
-export default function SelectNumberOfParts({ state, setState }) {
+export default function SelectNumberOfParts({ value, state, setState }) {
   function down() {
     setState(state - 1);
   }
@@ -21,7 +21,10 @@ export default function SelectNumberOfParts({ state, setState }) {
           name="chevron-left"
         />
       </TouchableOpacity>
-      <Text style={local.txt}>{state}</Text>
+      <Text style={local.txt}>
+        {state} x R${" "}
+        {Number.parseFloat(value.replace(",", "") / (100 * state)).toFixed(2)}
+      </Text>
       <TouchableOpacity activeOpacity={0.7} style={local.btn} onPress={up}>
         <Feather
           style={[local.icon, { backgroundColor: colors.backgroundLight }]}
