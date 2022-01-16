@@ -24,11 +24,12 @@ export default function AccountTransactionForm({ route, navigation }) {
   function handleSelectCategory() {
     if (name == "") return;
     if (value.replace(",", "") == 0) return;
+    let theVal = value.replace(",", "");
     navigation.navigate("CreateTransaction.SelectCategory", {
       data: {
         account_id,
         type,
-        value: value.replace(",", ""),
+        value: theVal,
         name,
         desc,
         date,
