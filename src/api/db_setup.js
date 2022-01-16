@@ -1,4 +1,4 @@
-import { openDatabase } from "expo-sqlite";
+import db from "./db";
 import {
   accounts,
   credit_cards,
@@ -18,7 +18,6 @@ function createTables(tx) {
 }
 
 export default function setupDatabase() {
-  const db = openDatabase("db.db");
   db.transaction(createTables, (err) => console.log(err));
 
   // warning: DEBUG ONLY
