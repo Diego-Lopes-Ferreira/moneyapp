@@ -29,7 +29,7 @@ export default function AccountTransactionForm({ route, navigation }) {
       data: {
         account_id,
         type,
-        value: theVal,
+        value: theVal ,
         name,
         desc,
         date,
