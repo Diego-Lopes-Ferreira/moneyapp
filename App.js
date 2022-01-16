@@ -1,11 +1,17 @@
+import { useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 
 // Pages
 import StackRoutes from "./src/routes";
 import Header from "./src/components/Header";
+import setupDatabase from "./src/api/db_setup";
 
 export default function App() {
+  useEffect(() => {
+    setupDatabase();
+  }, []);
+
   return (
     <NavigationContainer>
       <Header />
