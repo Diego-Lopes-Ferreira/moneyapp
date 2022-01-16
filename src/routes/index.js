@@ -6,6 +6,7 @@ import CreateTransactionCreateWhat from "../pages/CreateTransaction/SelectWhat";
 import SelectAccountCc from "../pages/CreateTransaction/SelectAccountCc";
 import AccountTransactionForm from "../pages/CreateTransaction/AccountTransactionForm";
 import SelectCategory from "../pages/CreateTransaction/SelectCategory";
+import CcTransactionForm from "../pages/CreateTransaction/CcTransactionForm";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,10 @@ export default function StackRoutes() {
       <Stack.Screen
         name="CreateTransaction.AccountTransactionForm"
         component={AccountTransactionForm}
+      />
+      <Stack.Screen
+        name="CreateTransaction.CcTransactionForm"
+        component={CcTransactionForm}
       />
       <Stack.Screen
         name="CreateTransaction.SelectCategory"
