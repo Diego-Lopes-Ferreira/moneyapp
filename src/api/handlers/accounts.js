@@ -5,6 +5,11 @@ export async function list() {
   return await runDb(query, []);
 }
 
+export async function read(id) {
+  const query = `SELECT * FROM accounts WHERE id=${id}`;
+  return await runDb(query, []);
+}
+
 export async function create(newAccount) {
   let { name, icon, color, description, balance } = newAccount;
   console.log(parseInt(balance));
