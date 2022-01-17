@@ -33,7 +33,7 @@ export async function update(account) {
     balance='${balance}'
     WHERE id=${id}
   `;
-  return await runDb(query, [name, icon, color, description, balance]);
+  return await runDb(query);
 }
 
 export async function updateBalance(id, balance) {
