@@ -14,5 +14,5 @@ export async function insert(newAccount) {
     (name, icon, color, description, balance)
     VALUES
     (?, ?, ?, ?, ?)`;
-  runDb(query, [name, icon, color, description, balance]);
+  return await runDb(query, [name, icon, color, description, balance]);
 }
