@@ -16,3 +16,27 @@ export async function insert(newAccount) {
     (?, ?, ?, ?, ?)`;
   return await runDb(query, [name, icon, color, description, balance]);
 }
+
+export async function update(account) {
+  let { id, name, icon, color, description, balance } = account;
+  let query = `
+    UPDATE accounts SET
+    name='${name}',
+    icon='${icon}',
+    color='${color}',
+    description='${description}',
+    balance='${balance}'
+    WHERE id=${id}
+  `;
+  return await runDb(query, [name, icon, color, description, balance]);
+}
+
+export async function deleteAccount(account) {
+  let { id } = account;
+  return await deleteById(id);
+}
+
+export async function deleteById(id) {
+  let query = ` DELETE FROM accounts SET WHERE id=${id}`;
+  return await runDb(query);
+}
