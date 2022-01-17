@@ -1,6 +1,15 @@
+export const dropAllTables = `
+DROP TABLE accounts;
+DROP TABLE credit_cards;
+DROP TABLE categories;
+DROP TABLE account_transactions;
+DROP TABLE cc_transactions;
+DROP TABLE transferences;
+`;
+
 export const accounts = `
 CREATE TABLE IF NOT EXISTS accounts (
-  id text primary key not null,
+  id integer primary key autoincrement,
   name text,
   icon text,
   color text,
@@ -11,7 +20,7 @@ CREATE TABLE IF NOT EXISTS accounts (
 
 export const credit_cards = `
 CREATE TABLE IF NOT EXISTS credit_cards (
-  id text primary key not null,
+  id integer primary key autoincrement,
   name text,
   icon text,
   color text,
@@ -27,7 +36,7 @@ CREATE TABLE IF NOT EXISTS credit_cards (
 
 export const categories = `
 CREATE TABLE IF NOT EXISTS categories (
-  id text primary key not null,
+  id integer primary key autoincrement,
   type text,
   name text,
   icon text,
@@ -37,7 +46,7 @@ CREATE TABLE IF NOT EXISTS categories (
 
 export const account_transactions = `
 CREATE TABLE IF NOT EXISTS account_transactions (
-  id text primary key not null,
+  id integer primary key autoincrement,
   type text,
   value integer,
   name text,
@@ -52,7 +61,7 @@ CREATE TABLE IF NOT EXISTS account_transactions (
 
 export const cc_transactions = `
 CREATE TABLE IF NOT EXISTS cc_transactions (
-  id text primary key not null,
+  id integer primary key autoincrement,
   type text,
   value integer,
   name text,
@@ -68,7 +77,7 @@ CREATE TABLE IF NOT EXISTS cc_transactions (
 
 export const transferences = `
 CREATE TABLE IF NOT EXISTS transferences (
-  id text primary key not null,
+  id integer primary key autoincrement,
   value integer,
   from_id text,
   to_id text,

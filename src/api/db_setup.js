@@ -6,9 +6,13 @@ import {
   account_transactions,
   cc_transactions,
   transferences,
+  dropAllTables,
 } from "./tables";
 
 function createTables(tx) {
+  // warning: DEBUG ONLY
+  tx.executeSql(dropAllTables);
+
   tx.executeSql(accounts);
   tx.executeSql(credit_cards);
   tx.executeSql(categories);
