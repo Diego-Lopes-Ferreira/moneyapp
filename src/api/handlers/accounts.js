@@ -5,7 +5,7 @@ export async function list() {
   return await runDb(query, []);
 }
 
-export async function insert(newAccount) {
+export async function create(newAccount) {
   let { name, icon, color, description, balance } = newAccount;
   console.log(parseInt(balance));
   // let id = Math.random().toString(36).slice(2, 10);
