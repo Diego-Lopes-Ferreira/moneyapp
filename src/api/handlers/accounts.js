@@ -31,6 +31,11 @@ export async function update(account) {
   return await runDb(query, [name, icon, color, description, balance]);
 }
 
+export async function updateBalance(id, balance) {
+  let query = `UPDATE accounts SET balance='${balance}' WHERE id=${id}`;
+  return await runDb(query);
+}
+
 export async function deleteAccount(account) {
   let { id } = account;
   return await deleteById(id);
