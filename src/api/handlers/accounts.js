@@ -1,4 +1,5 @@
 import { runDb } from "../db";
+import genId from "../../utils/genId";
 
 export async function list() {
   const query = "SELECT * FROM accounts";
@@ -13,13 +14,13 @@ export async function read(id) {
 export async function create(newAccount) {
   let { name, icon, color, description, balance } = newAccount;
   console.log(parseInt(balance));
-  // let id = Math.random().toString(36).slice(2, 10);
+  let id = genId();
   let query = `
     INSERT INTO accounts
-    (name, icon, color, description, balance)
+    (id, name, icon, color, description, balance)
     VALUES
-    (?, ?, ?, ?, ?)`;
-  return await runDb(query, [name, icon, color, description, balance]);
+    (?, ?, ?, ?, ?, ?)`;
+  return await runDb(query, [id, name, icon, color, description, balance]);
 }
 
 export async function update(account) {
