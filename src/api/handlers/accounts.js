@@ -48,6 +48,6 @@ export async function deleteAccount(account) {
 }
 
 export async function deleteById(id) {
-  let query = ` DELETE FROM accounts SET WHERE id=${id}`;
+  let query = `DELETE FROM accounts WHERE id=${id}`;
   return await runDb(query);
 }
