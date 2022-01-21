@@ -23,7 +23,9 @@ export async function create(acc_ts) {
 
 export async function listByMonth(date) {
   const query = `
-    SELECT * FROM account_transactions WHERE date > DATE(${date});
+    SELECT * FROM account_transactions WHERE
+        date > DATE(${date})
+    AND date < DATE(${date}, '+1 month')
   `;
   return runDb(query);
 }
