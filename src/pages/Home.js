@@ -1,11 +1,17 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+} from "react-native";
 import { Feather } from "@expo/vector-icons";
 import global, { colors, sizes } from "../styles";
 import Account from "../components/Account";
 import CreditCard from "../components/CreditCard";
 import Expense from "../components/Expense";
 
-export default function homePage() {
+export default function homePage({ navigation }) {
   return (
     <ScrollView>
       <View style={[global.container, { paddingBottom: 32 }]}>
@@ -15,7 +21,9 @@ export default function homePage() {
             <Text style={global.text_normal}>Good Morning</Text>
             <Text style={global.h2}>Diego!</Text>
           </View>
-          <Feather name="bell" color="#f0f0f0" size={32} />
+          <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
+            <Feather name="bell" color="#f0f0f0" size={32} />
+          </TouchableOpacity>
         </View>
 
         <View style={global.card}>

@@ -9,7 +9,7 @@ export default function SettingsPage({ navigation }) {
   return (
     <ScrollView contentContainerStyle={global.container}>
       <View style={global.card}>
-        <Text>Configurações</Text>
+        <Text style={global.text_normal}>Configurações</Text>
       </View>
       <ButtonSimple label="TEST PAGE" callback={navigateToTestPage} />
     </ScrollView>
