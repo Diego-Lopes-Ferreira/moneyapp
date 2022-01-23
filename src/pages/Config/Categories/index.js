@@ -1,6 +1,7 @@
 import { StyleSheet, ScrollView, View, Text } from "react-native";
 import global from "../../../styles";
 import ButtonSimple from "../../../components/Button/Simple";
+import Category from "../../../components/Category";
 
 export default function ConfigCategoriesPage({ route, navigation }) {
   return (
@@ -10,7 +11,24 @@ export default function ConfigCategoriesPage({ route, navigation }) {
         label="Criar Nova Categoria"
         callback={() => navigation.navigate("Config.Category.Form")}
       />
-      <Text style={local.txt}>Lista...</Text>
+      <Category
+        category={{
+          color: "#ff0000",
+          name: "Hello",
+          type: "income",
+          icon: "eye",
+        }}
+        callback={() =>
+          navigation.navigate("Config.Category.Form", {
+            category: {
+              color: "#ff0000",
+              name: "Hello",
+              type: "income",
+              icon: "eye",
+            },
+          })
+        }
+      />
     </View>
   );
 }
