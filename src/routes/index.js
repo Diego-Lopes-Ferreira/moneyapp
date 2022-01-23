@@ -10,6 +10,8 @@ import CcTransactionForm from "../pages/CreateTransaction/CcTransactionForm";
 import TransferenceForm from "../pages/CreateTransaction/TransferenceForm";
 import SettingsPage from "../pages/Settings";
 import TestPage from "../pages/DEBUG/TestPage";
+import ConfigCategoriesPage from "../pages/Config/Categories";
+import ConfigCategoryForm from "../pages/Config/Categories/CategoryForm";
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +43,8 @@ export default function StackRoutes() {
         name="CreateTransaction.TransferenceForm"
         component={TransferenceForm}
       />
+      <Stack.Screen name="Config.Category" component={ConfigCategoriesPage}/>
+      <Stack.Screen name="Config.Category.Form" component={ConfigCategoryForm}/>
       <Stack.Screen name="Settings" component={SettingsPage} />
       <Stack.Screen name="Debug.TestPage" component={TestPage} />
     </Stack.Navigator>

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import global, { colors } from "../styles";
+import global, { colors } from "../../../styles";
 
 import { View, Text } from "react-native";
-import PickBetweenTwoTypes from "../components/PickBetweenTwoTypes";
-import Input from "../components/Input";
-import ButtonSimple from "../components/Button/Simple";
+import PickBetweenTwoTypes from "../../../components/PickBetweenTwoTypes";
+import Input from "../../../components/Input";
+import ButtonSimple from "../../../components/Button/Simple";
 
-export default function CreateNewCategory({ route, navigation }) {
+export default function ConfigCategoryForm({ route, navigation }) {
   const { category } = route.params;
 
   const [type, set_type] = useState("");
