@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import global, { colors } from "../../../styles";
 
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, Alert } from "react-native";
 import PickBetweenTwoTypes from "../../../components/PickBetweenTwoTypes";
 import Input from "../../../components/Input";
 import ButtonSimple from "../../../components/Button/Simple";
+
+import { categories } from "../../../api";
 
 export default function ConfigCategoryForm({ route, navigation }) {
   const category = route.params?.category;
@@ -25,10 +27,28 @@ export default function ConfigCategoryForm({ route, navigation }) {
 
   function handleSave() {
     if (category) {
-      // update with the current values
+      categories.update({ id: category.id, type, name, icon, color });
     } else {
-      // create a new category
+      categories.create({ type, name, icon, color });
     }
+    navigation.goBack();
+  }
+
+  function handleDelete() {
+    Alert.alert("Hey", "Deseja mesmo deletar essa categoria?", [
+      {
+        text: "Cancelar",
+        onPress: () => {},
+        style: "cancel",
+      },
+      {
+        text: "OK",
+        onPress: () => {
+          categories.deleteById(category.id);
+          navigation.goBack();
+        },
+      },
+    ]);
   }
 
   return (
@@ -48,6 +68,7 @@ export default function ConfigCategoryForm({ route, navigation }) {
       <Input state={icon} setState={set_icon} label="Icone" />
       <Input state={color} setState={set_color} label="Cor" />
       <ButtonSimple label="Salvar" callback={handleSave} />
+      {category && <ButtonSimple label="Deletar" callback={handleDelete} />}
     </View>
   );
 }
