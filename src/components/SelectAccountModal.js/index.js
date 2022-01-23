@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, ScrollView, View, Text } from "react-native";
+import { StyleSheet, ScrollView, View, Text, Modal } from "react-native";
 import global, { colors } from "../../styles";
 import ButtonIconName from "../Button/IconName";
 import ButtonSimple from "../Button/Simple";
@@ -13,7 +13,18 @@ export default function SelectAccountModal({ label, setState }) {
 
   return (
     <>
-      {show ? (
+      <View style={local.container}>
+        <ButtonSimple callback={() => setShow(true)} label={label} />
+      </View>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={show}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+      >
         <View style={local.modal}>
           <ScrollView style={local.modalScrollView}>
             <Text style={local.modaltxt}>{label}</Text>
@@ -33,11 +44,7 @@ export default function SelectAccountModal({ label, setState }) {
             />
           </ScrollView>
         </View>
-      ) : (
-        <View style={local.container}>
-          <ButtonSimple callback={() => setShow(true)} label={label} />
-        </View>
-      )}
+      </Modal>
     </>
   );
 }
