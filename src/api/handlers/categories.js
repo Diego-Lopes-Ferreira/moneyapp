@@ -31,7 +31,7 @@ export async function update(transference) {
     type='${type}',
     name='${name}',
     icon='${icon}',
-    color='${color}',
+    color='${color}'
     WHERE id='${id}'
   `;
   return runDb(query);
@@ -43,6 +43,6 @@ export async function deleteCategory(cat) {
 }
 
 export async function deleteById(id) {
-  const query = `DELETE FROM ${tb_name} WHERE id=${id}`;
+  const query = `DELETE FROM ${tb_name} WHERE id='${id}'`;
   return runDb(query);
 }
