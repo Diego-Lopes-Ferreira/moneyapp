@@ -10,6 +10,7 @@ import global, { colors, sizes } from "../styles";
 import Account from "../components/Account";
 import CreditCard from "../components/CreditCard";
 import Expense from "../components/Expense";
+import ButtonIcon from "../components/Button/Icon";
 
 export default function homePage({ navigation }) {
   return (
@@ -40,7 +41,16 @@ export default function homePage({ navigation }) {
         <View style={global.card}>
           <View style={global.rowGroup}>
             <Text style={[global.h3, local.flex1]}>My accounts</Text>
-            <Feather name="edit-2" color="#f0f0f0" size={sizes.l} />
+            <ButtonIcon
+              callback={() =>
+                console.log("navigation.navigate('Config.Accounts')")
+              }
+              iconSize={sizes.l}
+              iconName="edit-2"
+              iconColor={colors.background}
+              iconBgColor={colors.green}
+            />
+            {/* <Feather name="edit-2" color="#f0f0f0" size={sizes.l} /> */}
           </View>
           {/* for each: Account Component */}
           <Account
