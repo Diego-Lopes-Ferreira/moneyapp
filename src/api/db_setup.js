@@ -10,9 +10,6 @@ import {
 } from "./tables";
 
 function createTables(tx) {
-  // warning: DEBUG ONLY
-  tx.executeSql(dropAllTables);
-
   tx.executeSql(accounts);
   tx.executeSql(credit_cards);
   tx.executeSql(categories);
@@ -23,6 +20,19 @@ function createTables(tx) {
 
 export default function setupDatabase() {
   db.transaction(createTables, (err) => console.log(err));
+
+  // warning: DEBUG ONLY
+  console.log("\n\nShowing rows " + new Date().toTimeString());
+  db.transaction(readToTerminal, (err) => console.log(err));
+}
+
+export function cleanDatabase() {
+  db.transaction(
+    (tx) => {
+      tx.executeSql(dropAllTables);
+    },
+    (err) => console.log(err)
+  );
 
   // warning: DEBUG ONLY
   console.log("\n\nShowing rows " + new Date().toTimeString());
