@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import global, { colors } from "../../../styles";
 
-import { View, Text } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import PickBetweenTwoTypes from "../../../components/PickBetweenTwoTypes";
 import Input from "../../../components/Input";
 import ButtonSimple from "../../../components/Button/Simple";
 
 export default function ConfigCategoryForm({ route, navigation }) {
-  const { category } = route.params;
+  const category = route.params?.category;
 
-  const [type, set_type] = useState("");
+  const [type, set_type] = useState("expense");
   const [name, set_name] = useState("");
   const [icon, set_icon] = useState("");
   const [color, set_color] = useState("");
@@ -32,7 +32,7 @@ export default function ConfigCategoryForm({ route, navigation }) {
   }
 
   return (
-    <View style={global.container}>
+    <View style={local.container}>
       <Text style={global.h1}>Criar Nova Categoria</Text>
       <PickBetweenTwoTypes
         type={type}
@@ -51,3 +51,10 @@ export default function ConfigCategoryForm({ route, navigation }) {
     </View>
   );
 }
+
+const local = StyleSheet.create({
+  container: {
+    ...global.container,
+    width: "100%",
+  },
+});

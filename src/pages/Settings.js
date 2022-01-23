@@ -12,6 +12,10 @@ export default function SettingsPage({ navigation }) {
         <Text style={global.text_normal}>Configurações</Text>
       </View>
       <ButtonSimple label="TEST PAGE" callback={navigateToTestPage} />
+      <ButtonSimple
+        label="Categorias"
+        callback={() => navigation.navigate("Config.Category")}
+      />
     </ScrollView>
   );
 }

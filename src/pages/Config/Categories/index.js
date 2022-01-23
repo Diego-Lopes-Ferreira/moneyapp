@@ -8,7 +8,7 @@ export default function ConfigCategoriesPage({ route, navigation }) {
       <Text style={local.txt}>Categorias</Text>
       <ButtonSimple
         label="Criar Nova Categoria"
-        callback={() => navigation.navigate("ConfigCategories.Create")}
+        callback={() => navigation.navigate("Config.Category.Form")}
       />
       <Text style={local.txt}>Lista...</Text>
     </View>
