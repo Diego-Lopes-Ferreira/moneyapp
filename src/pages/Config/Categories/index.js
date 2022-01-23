@@ -26,7 +26,7 @@ export default function ConfigCategoriesPage({ route, navigation }) {
         label="Criar Nova Categoria"
         callback={() => navigation.navigate("Config.Category.Form")}
       />
-      {cats ? (
+      {cats.length > 0 ? (
         cats.map((cat, index) => (
           <Category
             key={index}
@@ -37,7 +37,7 @@ export default function ConfigCategoriesPage({ route, navigation }) {
           />
         ))
       ) : (
-        <Text>No Cateogries</Text>
+        <Text style={global.text_normal}>Nenhuma Categoria</Text>
       )}
     </View>
   );
