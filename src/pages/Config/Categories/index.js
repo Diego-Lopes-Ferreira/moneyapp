@@ -1,6 +1,6 @@
 import { StyleSheet, ScrollView, View, Text } from "react-native";
-import global from "../../styles";
-import ButtonSimple from "../components/Button/Simple";
+import global from "../../../styles";
+import ButtonSimple from "../../../components/Button/Simple";
 
 export default function ConfigCategoriesPage({ route, navigation }) {
   return (
