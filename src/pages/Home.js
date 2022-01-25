@@ -42,9 +42,7 @@ export default function homePage({ navigation }) {
           <View style={global.rowGroup}>
             <Text style={[global.h3, local.flex1]}>My accounts</Text>
             <ButtonIcon
-              callback={() =>
-                console.log("navigation.navigate('Config.Accounts')")
-              }
+              callback={() => navigation.navigate("Config.Account")}
               iconSize={sizes.l}
               iconName="edit-2"
               iconColor={colors.background}

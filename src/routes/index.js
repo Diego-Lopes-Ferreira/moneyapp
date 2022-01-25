@@ -12,6 +12,8 @@ import SettingsPage from "../pages/Settings";
 import TestPage from "../pages/DEBUG/TestPage";
 import ConfigCategoriesPage from "../pages/Config/Categories";
 import ConfigCategoryForm from "../pages/Config/Categories/CategoryForm";
+import ConfigAccountsPage from "../pages/Config/Accounts";
+import ConfigAccountForm from "../pages/Config/Accounts/AccountForm";
 
 const Stack = createNativeStackNavigator();
 
@@ -45,6 +47,8 @@ export default function StackRoutes() {
       />
       <Stack.Screen name="Config.Category" component={ConfigCategoriesPage}/>
       <Stack.Screen name="Config.Category.Form" component={ConfigCategoryForm}/>
+      <Stack.Screen name="Config.Account" component={ConfigAccountsPage}/>
+      <Stack.Screen name="Config.Account.Form" component={ConfigAccountForm}/>
       <Stack.Screen name="Settings" component={SettingsPage} />
       <Stack.Screen name="Debug.TestPage" component={TestPage} />
     </Stack.Navigator>
