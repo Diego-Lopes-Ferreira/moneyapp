@@ -28,6 +28,7 @@ export default function ValueInput({ state, setState, label }) {
 const local = StyleSheet.create({
   container: {
     flex: 1,
+    alignSelf: "stretch",
     marginBottom: sizes.xl,
   },
   row: {
