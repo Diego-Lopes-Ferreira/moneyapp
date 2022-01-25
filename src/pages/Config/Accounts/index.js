@@ -29,7 +29,7 @@ export default function ConfigAccountsPage({ route, navigation }) {
         {accs.length > 0 ? (
           accs.map((acc, index) => <Text>{acc}</Text>)
         ) : (
-          <Text style={global.text_normal}>Nenhuma Categoria</Text>
+          <Text style={global.text_normal}>Nenhuma Conta</Text>
         )}
       </ScrollView>
     </View>
