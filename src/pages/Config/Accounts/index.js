@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { ScrollView, View, Text } from "react-native";
 import global from "../../../styles";
 import ButtonSimple from "../../../components/Button/Simple";
 
 import { account } from "../../../api";
-import { useFocusEffect } from "@react-navigation/core";
+import { useIsFocused } from "@react-navigation/native";
 
 export default function ConfigAccountsPage({ route, navigation }) {
+  const isFocused = useIsFocused();
   const [accs, set_accs] = useState([]);
 
   async function fetchData() {
@@ -14,9 +15,9 @@ export default function ConfigAccountsPage({ route, navigation }) {
     set_accs(_array);
   }
 
-  useFocusEffect(() => {
+  useEffect(() => {
     fetchData();
-  });
+  }, [isFocused]);
 
   return (
     <View style={global.container}>
