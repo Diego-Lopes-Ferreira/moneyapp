@@ -21,8 +21,7 @@ export default function SelectAccountModal({ label, setState }) {
         transparent={true}
         visible={show}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
+          setShow(false);
         }}
       >
         <View style={local.modal}>
