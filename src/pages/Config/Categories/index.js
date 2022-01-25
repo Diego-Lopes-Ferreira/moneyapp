@@ -5,9 +5,10 @@ import ButtonSimple from "../../../components/Button/Simple";
 import Category from "../../../components/Category";
 
 import { categories } from "../../../api";
-import { useFocusEffect } from "@react-navigation/core";
+import { useIsFocused } from "@react-navigation/native";
 
 export default function ConfigCategoriesPage({ route, navigation }) {
+  const isFocused = useIsFocused();
   const [cats, set_cats] = useState([]);
 
   async function fetchData() {
@@ -15,9 +16,9 @@ export default function ConfigCategoriesPage({ route, navigation }) {
     set_cats(_array);
   }
 
-  useFocusEffect(() => {
+  useEffect(() => {
     fetchData();
-  });
+  }, [isFocused]);
 
   return (
     <View style={global.container}>
