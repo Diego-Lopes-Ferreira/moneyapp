@@ -1,10 +1,19 @@
 import { useState, useCallback, useEffect } from "react";
-import { ScrollView, View, Text } from "react-native";
-import global from "../../../styles";
+import {
+  ScrollView,
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
+import { useIsFocused } from "@react-navigation/native";
+
+import global, { colors } from "../../../styles";
+
 import ButtonSimple from "../../../components/Button/Simple";
+import Account from "../../../components/Account";
 
 import { account } from "../../../api";
-import { useIsFocused } from "@react-navigation/native";
 
 export default function ConfigAccountsPage({ route, navigation }) {
   const isFocused = useIsFocused();
@@ -26,9 +35,27 @@ export default function ConfigAccountsPage({ route, navigation }) {
         label="Criar Nova Conta"
         callback={() => navigation.navigate("Config.Account.Form")}
       />
-      <ScrollView>
+      <ScrollView contentContainerStyle={local.scrollview}>
         {accs.length > 0 ? (
-          accs.map((acc, index) => <Text>{acc}</Text>)
+          accs.map((acc, index) => (
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("Config.Account.Form", {
+                  account: acc,
+                })
+              }
+              key={index}
+            >
+              <Account
+                iconName={acc.icon}
+                name={acc.name}
+                description={acc.description}
+                value={acc.balance}
+                bgColor={acc.color}
+                hasBorder={index != accs.length - 1}
+              />
+            </TouchableOpacity>
+          ))
         ) : (
           <Text style={global.text_normal}>Nenhuma Conta</Text>
         )}
@@ -36,3 +63,10 @@ export default function ConfigAccountsPage({ route, navigation }) {
     </View>
   );
 }
+
+const local = StyleSheet.create({
+  scrollview: {
+    ...global.card,
+    width: "100%",
+  },
+});
