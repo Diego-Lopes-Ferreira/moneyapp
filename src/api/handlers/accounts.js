@@ -32,13 +32,13 @@ export async function update(account) {
     color='${color}',
     description='${description}',
     balance='${balance}'
-    WHERE id=${id}
+    WHERE id='${id}'
   `;
   return await runDb(query);
 }
 
 export async function updateBalance(id, balance) {
-  let query = `UPDATE accounts SET balance='${balance}' WHERE id=${id}`;
+  let query = `UPDATE accounts SET balance='${balance}' WHERE id='${id}'`;
   return await runDb(query);
 }
 
@@ -48,6 +48,6 @@ export async function deleteAccount(account) {
 }
 
 export async function deleteById(id) {
-  let query = `DELETE FROM accounts WHERE id=${id}`;
+  let query = `DELETE FROM accounts WHERE id='${id}'`;
   return await runDb(query);
 }
