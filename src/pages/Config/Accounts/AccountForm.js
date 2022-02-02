@@ -61,7 +61,7 @@ export default function ConfigAccountForm({ route, navigation }) {
         {
           text: "Sim",
           onPress: () => {
-            // delete account
+            account.deleteById(acc.id);
             navigation.goBack();
           },
         },
