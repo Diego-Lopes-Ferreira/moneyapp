@@ -14,7 +14,7 @@ import ButtonSimple from "../Button/Simple";
 import { Feather } from "@expo/vector-icons";
 import { feather_icon_names } from "../../utils/feather_icons";
 
-export default function IconPicker({ state, setState, label }) {
+export default function IconPicker({ color, setState, label }) {
   const [show, set_show] = useState(false);
   const [dlist, set_dlist] = useState([]);
   const [search, set_search] = useState("");
@@ -37,7 +37,7 @@ export default function IconPicker({ state, setState, label }) {
           setState(item);
           set_show(false);
         }}
-        style={local.btn}
+        style={[local.btn, { backgroundColor: color }]}
       >
         <Feather name={item} size={sizes.xxxl} color={colors.foreground} />
       </TouchableOpacity>
