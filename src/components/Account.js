@@ -1,12 +1,16 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
+
 import global, { colors, sizes } from "../styles";
+
+import parseValue from "../utils/valueParser";
 
 export default function Account({
   iconName,
   name,
-  category,
+  description,
   value,
+  bgColor,
   hasBorder,
 }) {
   return (
@@ -16,15 +20,20 @@ export default function Account({
         hasBorder ? local.containerWithBorder : {},
       ]}
     >
-      <View style={local.circle}>
+      <View
+        style={[
+          local.circle,
+          { backgroundColor: bgColor || colors.foreground },
+        ]}
+      >
         <Feather name={iconName} color={colors.background} size={sizes.xxxl} />
       </View>
       <View style={[global.columnGroup, { flex: 1 }]}>
         <Text style={global.text_normal}>{name}</Text>
-        <Text style={global.text_small}>{category}</Text>
+        <Text style={global.text_small}>{description}</Text>
       </View>
       <View style={local.valueContainer}>
-        <Text style={local.value}>R$ {Number.parseFloat(value).toFixed(2)}</Text>
+        <Text style={local.value}>{parseValue(value)}</Text>
       </View>
     </View>
   );
