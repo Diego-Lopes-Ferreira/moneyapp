@@ -75,8 +75,3 @@ const local = StyleSheet.create({
     borderWidth: 1,
   },
 });
-
-/*
-  # TODO
-  [ ] Account component: Icon, name, type?, value
-*/
