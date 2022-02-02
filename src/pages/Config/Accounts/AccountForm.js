@@ -1,22 +1,25 @@
 import { useEffect, useState } from "react";
+import { StyleSheet, View, ScrollView, Text, Alert } from "react-native";
+
 import global, { colors, sizes } from "../../../styles";
 
-import { StyleSheet, View, ScrollView, Text, Alert } from "react-native";
 import Input from "../../../components/Input";
 import ButtonSimple from "../../../components/Button/Simple";
 import ValueInput from "../../../components/ValueInput";
-
-import { account } from "../../../api";
 import IconPicker from "../../../components/Picker/Icon";
 import ColorPicker from "../../../components/Picker/Color";
 import Account from "../../../components/Account";
+
+import { account } from "../../../api";
+
+import categories_colors from "../../../utils/categories_colors";
 
 export default function ConfigAccountForm({ route, navigation }) {
   const acc = route.params?.account;
 
   const [name, set_name] = useState("");
-  const [icon, set_icon] = useState("");
-  const [color, set_color] = useState("");
+  const [icon, set_icon] = useState("home");
+  const [color, set_color] = useState(categories_colors[0]);
   const [desc, set_desc] = useState("");
   const [balance, set_balance] = useState("");
 
@@ -78,8 +81,9 @@ export default function ConfigAccountForm({ route, navigation }) {
       <Account
         iconName={icon}
         name={name}
-        category={"oi"}
+        description={desc}
         value={balance}
+        bgColor={color}
         hasBorder={false}
       />
       <ButtonSimple label="Salvar" callback={handleSave} />
