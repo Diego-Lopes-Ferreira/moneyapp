@@ -7,9 +7,12 @@ import ButtonSimple from "../../../components/Button/Simple";
 import ValueInput from "../../../components/ValueInput";
 
 import { account } from "../../../api";
+import IconPicker from "../../../components/Picker/Icon";
+import ColorPicker from "../../../components/Picker/Color";
+import Account from "../../../components/Account";
 
 export default function ConfigAccountForm({ route, navigation }) {
-  const account = route.params?.account;
+  const acc = route.params?.account;
 
   const [name, set_name] = useState("");
   const [icon, set_icon] = useState("");
@@ -18,19 +21,19 @@ export default function ConfigAccountForm({ route, navigation }) {
   const [balance, set_balance] = useState("");
 
   useEffect(() => {
-    if (account) {
-      set_type(account.type);
-      set_name(account.name);
-      set_icon(account.icon);
-      set_color(account.color);
+    if (acc) {
+      set_type(acc.type);
+      set_name(acc.name);
+      set_icon(acc.icon);
+      set_color(acc.color);
     }
   }, []);
 
   function handleSave() {
-    if (account) {
-      // update account
+    if (acc) {
+      // update acc
     } else {
-      // create account
+      // create acc
     }
     navigation.goBack();
   }
@@ -65,9 +68,22 @@ export default function ConfigAccountForm({ route, navigation }) {
         <Input state={color} setState={set_color} label="Cor" />
         <Input state={desc} setState={set_desc} label="Descrição" />
         <ValueInput state={balance} setState={set_balance} label="Saldo" />
+        <IconPicker
+          color={color}
+          setState={set_icon}
+          label="Selecione o Ícone"
+        />
+        <ColorPicker icon={icon} setState={set_color} label="Selecione a Cor" />
       </ScrollView>
+      <Account
+        iconName={icon}
+        name={name}
+        category={"oi"}
+        value={balance}
+        hasBorder={false}
+      />
       <ButtonSimple label="Salvar" callback={handleSave} />
-      {account && <ButtonSimple label="Deletar" callback={handleDelete} />}
+      {acc && <ButtonSimple label="Deletar" callback={handleDelete} />}
     </View>
   );
 }
