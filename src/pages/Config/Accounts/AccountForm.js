@@ -25,7 +25,7 @@ export default function ConfigAccountForm({ route, navigation }) {
 
   useEffect(() => {
     if (acc) {
-      set_type(acc.type);
+      set_desc(acc.description);
       set_name(acc.name);
       set_icon(acc.icon);
       set_color(acc.color);
@@ -34,9 +34,16 @@ export default function ConfigAccountForm({ route, navigation }) {
 
   function handleSave() {
     if (acc) {
-      // update acc
+      account.update({
+        id: acc.id,
+        name,
+        icon,
+        color,
+        description: desc,
+        balance,
+      });
     } else {
-      // create acc
+      account.create({ name, icon, color, description: desc, balance });
     }
     navigation.goBack();
   }
