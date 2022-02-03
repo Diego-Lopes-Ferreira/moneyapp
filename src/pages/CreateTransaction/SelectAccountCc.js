@@ -1,9 +1,19 @@
+import { useEffect, useState } from "react";
 import { ScrollView, View, Text, StyleSheet } from "react-native";
+import { useIsFocused } from "@react-navigation/native";
+
 import global, { colors, sizes } from "../../styles";
+
 import ButtonIconName from "../../components/Button/IconName";
 import HeaderCancelSave from "./HeaderCancelSave";
 
+import { account, credit_cards } from "../../api";
+
 export default function SelectAccountCc({ navigation }) {
+  const isFocused = useIsFocused();
+  const [accs, set_accs] = useState([]);
+  const [ccs, set_ccs] = useState([]);
+
   function handleGoBack() {
     navigation.goBack();
   }
@@ -20,6 +30,20 @@ export default function SelectAccountCc({ navigation }) {
     });
   }
 
+  async function fetchAccounts() {
+    let { _array } = await account.list();
+    set_accs(_array);
+  }
+  async function fetchCreditCards() {
+    let { _array } = await credit_cards.list();
+    set_ccs(_array);
+  }
+
+  useEffect(() => {
+    fetchAccounts();
+    fetchCreditCards();
+  }, [isFocused]);
+
   return (
     <View style={global.container}>
       <HeaderCancelSave
@@ -28,29 +52,35 @@ export default function SelectAccountCc({ navigation }) {
       />
       <ScrollView style={local.scrollView}>
         <Text style={global.h3}>Contas</Text>
-        <ButtonIconName
-          label="Banco X"
-          callback={() => handleAccount(1)}
-          iconName="home"
-          iconColor={colors.background}
-          iconBgColor={colors.foreground}
-        />
-        <ButtonIconName
-          label="Banco Y"
-          callback={() => handleAccount(2)}
-          iconName="home"
-          iconColor={colors.background}
-          iconBgColor={colors.foreground}
-        />
-
+        {accs.length > 0 ? (
+          accs.map((acc, index) => (
+            <ButtonIconName
+              key={index}
+              label={acc.name}
+              callback={() => handleAccount(acc.id)}
+              iconName={acc.icon}
+              iconColor={colors.background}
+              iconBgColor={acc.color}
+            />
+          ))
+        ) : (
+          <Text style={global.text_normal}>Nenhuma Conta</Text>
+        )}
         <Text style={global.h3}>Cartões</Text>
-        <ButtonIconName
-          label="Cartão Teste"
-          callback={() => handleCc(1)}
-          iconName="home"
-          iconColor={colors.background}
-          iconBgColor={colors.foreground}
-        />
+        {ccs.length > 0 ? (
+          ccs.map((cc, index) => (
+            <ButtonIconName
+              key={index}
+              label={cc.name}
+              callback={() => handleCc(cc.id)}
+              iconName={cc.icon}
+              iconColor={colors.background}
+              iconBgColor={cc.color}
+            />
+          ))
+        ) : (
+          <Text style={global.text_normal}>Nenhum Cartão</Text>
+        )}
       </ScrollView>
     </View>
   );
