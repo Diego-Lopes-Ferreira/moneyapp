@@ -9,7 +9,7 @@ import ValueInput from "../../components/ValueInput";
 import DatePicker from "../../components/DatePicker";
 
 export default function AccountTransactionForm({ route, navigation }) {
-  const { account_id } = route.params;
+  const { account_id, acc } = route.params;
 
   const [type, set_type] = useState("expense");
   const [name, set_name] = useState("");
@@ -40,7 +40,10 @@ export default function AccountTransactionForm({ route, navigation }) {
 
   return (
     <View style={global.container}>
-      <HeaderCancelSave leftPress={handleGoBack} title="Transação: 'Banco X'" />
+      <HeaderCancelSave
+        leftPress={handleGoBack}
+        title={`Transação: ${acc?.name || ""}`}
+      />
       <ScrollView style={local.scrollView}>
         <PickBetweenTwoTypes
           type={type}
