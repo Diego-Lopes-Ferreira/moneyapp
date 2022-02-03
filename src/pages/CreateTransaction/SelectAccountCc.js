@@ -27,7 +27,7 @@ export default function SelectAccountCc({ navigation }) {
   function handleAccount(id, acc) {
     navigation.navigate("CreateTransaction.AccountTransactionForm", {
       account_id: id,
-      account: acc,
+      acc: acc,
     });
   }
 
