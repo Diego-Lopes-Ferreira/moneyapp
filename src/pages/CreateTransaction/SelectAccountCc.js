@@ -24,9 +24,10 @@ export default function SelectAccountCc({ navigation }) {
     });
   }
 
-  function handleAccount(id) {
+  function handleAccount(id, acc) {
     navigation.navigate("CreateTransaction.AccountTransactionForm", {
       account_id: id,
+      account: acc,
     });
   }
 
@@ -57,7 +58,7 @@ export default function SelectAccountCc({ navigation }) {
             <ButtonIconName
               key={index}
               label={acc.name}
-              callback={() => handleAccount(acc.id)}
+              callback={() => handleAccount(acc.id, acc)}
               iconName={acc.icon}
               iconColor={colors.background}
               iconBgColor={acc.color}
