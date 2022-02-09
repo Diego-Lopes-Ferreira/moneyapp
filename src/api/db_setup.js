@@ -1,21 +1,21 @@
 import db from "./db";
 import {
   accounts,
-  credit_cards,
   categories,
   account_transactions,
-  cc_transactions,
   transferences,
   dropAllTables,
+  // credit_cards,
+  // cc_transactions,
 } from "./tables";
 
 function createTables(tx) {
   tx.executeSql(accounts);
-  tx.executeSql(credit_cards);
   tx.executeSql(categories);
   tx.executeSql(account_transactions);
-  tx.executeSql(cc_transactions);
   tx.executeSql(transferences);
+  // tx.executeSql(credit_cards);
+  // tx.executeSql(cc_transactions);
 }
 
 export default function setupDatabase() {
@@ -47,19 +47,21 @@ function readToTerminal(tx) {
   tx.executeSql("SELECT * FROM accounts", [], (_, { rows }) => {
     console.log(rows);
   });
-  tx.executeSql("SELECT * FROM credit_cards", [], (_, { rows }) => {
-    console.log(rows);
-  });
   tx.executeSql("SELECT * FROM categories", [], (_, { rows }) => {
     console.log(rows);
   });
   tx.executeSql("SELECT * FROM account_transactions", [], (_, { rows }) => {
     console.log(rows);
   });
-  tx.executeSql("SELECT * FROM cc_transactions", [], (_, { rows }) => {
-    console.log(rows);
-  });
   tx.executeSql("SELECT * FROM transferences", [], (_, { rows }) => {
     console.log(rows);
   });
+  /*
+  tx.executeSql("SELECT * FROM credit_cards", [], (_, { rows }) => {
+    console.log(rows);
+  });
+  tx.executeSql("SELECT * FROM cc_transactions", [], (_, { rows }) => {
+    console.log(rows);
+  });
+  */
 }

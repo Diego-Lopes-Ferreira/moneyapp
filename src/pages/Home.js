@@ -8,9 +8,9 @@ import {
 import { Feather } from "@expo/vector-icons";
 import global, { colors, sizes } from "../styles";
 import Account from "../components/Account";
-import CreditCard from "../components/CreditCard";
 import Expense from "../components/Expense";
 import ButtonIcon from "../components/Button/Icon";
+// import CreditCard from "../components/CreditCard";
 
 export default function homePage({ navigation }) {
   return (
@@ -73,13 +73,13 @@ export default function homePage({ navigation }) {
           />
           {/* button: manage accounts: goto(accounts) */}
         </View>
-
+        {/*
         <View style={global.card}>
           <View style={global.rowGroup}>
             <Text style={[global.h3, local.flex1]}>Credit Cards</Text>
             <Feather name="edit-2" color="#f0f0f0" size={sizes.l} />
           </View>
-          {/* for each: Credit card Component */}
+          {/* for each: Credit card Component
           <CreditCard
             iconName="credit-card"
             name="Cartao Teste"
@@ -96,9 +96,9 @@ export default function homePage({ navigation }) {
             statement="123"
             hasBorder={false}
           />
-          {/* button: manage credit cards: goto(creditCards) */}
+          {/* button: manage credit cards: goto(creditCards)
         </View>
-
+        */}
         <View style={global.card}>
           <Expense
             iconName="eye"
